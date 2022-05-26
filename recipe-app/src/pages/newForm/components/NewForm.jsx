@@ -12,7 +12,6 @@ function NewForm() {
     password: "",
     age: "",
     userBio: "",
-    checkedValue: "",
     userInterest: false,
   });
   const onChangeHandler = (e) => {
@@ -87,11 +86,7 @@ function NewForm() {
               labelValue="Bio:"
             />
             <label htmlFor="job">Job Role:</label>
-            <select
-              onChange={(e) => onChangeHandler(e)}
-              id="job"
-              name="user_job"
-            >
+            <select onChange={onChangeHandler} id="job" name="user_job">
               <optgroup label="Web">
                 <option value="frontend_developer">Front-End Developer</option>
                 <option value="php_developer">PHP Developer</option>
@@ -112,7 +107,7 @@ function NewForm() {
             </select>
             <Label>Interests:</Label>
             <input
-              onChange={(e) => onChangeHandler(e)}
+              onChange={onChangeHandler}
               type="checkbox"
               id="development"
               value="interest_development"
@@ -123,22 +118,22 @@ function NewForm() {
             </label>
             <br />
             <input
-              onChange={(e) => onChangeHandler(e)}
+              onChange={onChangeHandler}
               type="checkbox"
               id="design"
               value="interest_design"
-              name="user_interest"
+              name="userInterest"
             />
             <label className="light" htmlFor="design" />
             Design
             <label>
               <br />
               <input
-                onChange={(e) => onChangeHandler(e)}
+                onChange={onChangeHandler}
                 type="checkbox"
                 id="business"
                 value="interest_business"
-                name="user_interest"
+                name="userInterest"
               />
               <label className="light" htmlFor="business" />
               Business

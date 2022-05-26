@@ -5,12 +5,7 @@ function TextInput({ labelValue, type, name, id, onChangeHandler }) {
   return (
     <>
       <Label htmlFor={id}>{labelValue}</Label>
-      <InputField
-        onChange={(e) => onChangeHandler(e)}
-        type={type}
-        name={name}
-        id={id}
-      />
+      <InputField onChange={onChangeHandler} type={type} name={name} id={id} />
     </>
   );
 }
