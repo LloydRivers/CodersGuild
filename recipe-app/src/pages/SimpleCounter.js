@@ -11,6 +11,8 @@ const reducer = (state, action) => {
 
     case "decrement":
       return { ...state, count: state.count - 1 };
+    default:
+      return state;
   }
 };
 function SimpleCounter() {

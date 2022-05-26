@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TextInput from "./TextInput";
 import { Label, Form } from "./styledComponents/Form.styled";
 import RadioInput from "./styledComponents/RadioInput";
+import ControlledText from "./ControlledText";
 import "../formStyling/form.css";
 
 function NewForm() {
@@ -9,17 +10,22 @@ function NewForm() {
     name: "",
     email: "",
     password: "",
-    isChecked: false,
-    text: null,
+    age: "",
+    userBio: "",
+    checkedValue: "",
+    userInterest: false,
   });
   const onChangeHandler = (e) => {
     setFormData((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
-  console.log(formData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
   return (
     <div className="row">
       <div className="col-md-12">
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <h1> Sign Up </h1>
 
           <fieldset>
@@ -27,7 +33,7 @@ function NewForm() {
               <span className="number">1</span> Your Basic Info:
             </legend>
             <TextInput
-              onChange={onChangeHandler}
+              onChangeHandler={onChangeHandler}
               formData={formData}
               value={formData.name}
               labelValue="Name"
@@ -36,7 +42,7 @@ function NewForm() {
               id="name"
             />
             <TextInput
-              onChange={onChangeHandler}
+              onChangeHandler={onChangeHandler}
               value={formData.email}
               labelValue="Email"
               type="email"
@@ -44,7 +50,7 @@ function NewForm() {
               id="mail"
             />
             <TextInput
-              onChange={onChangeHandler}
+              onChangeHandler={onChangeHandler}
               value={formData.password}
               labelValue="Password"
               type="password"
@@ -54,15 +60,17 @@ function NewForm() {
 
             <Label>Age:</Label>
             <RadioInput
+              onChangeHandler={onChangeHandler}
               labelValue=" Under 13"
-              name="user_age"
+              name="age"
               id="under_13"
               value="under_13"
             />
 
             <RadioInput
+              onChangeHandler={onChangeHandler}
               labelValue=" Over 13"
-              name="user_age"
+              name="age"
               id="over_13"
               value="over_13"
             />
@@ -72,10 +80,18 @@ function NewForm() {
             <legend>
               <span className="number">2</span> Your Profile
             </legend>
-            <label htmlFor="bio">Bio:</label>
-            <textarea id="bio" name="user_bio"></textarea>
+            <ControlledText
+              onChangeHandler={onChangeHandler}
+              name="userBio"
+              id="bio"
+              labelValue="Bio:"
+            />
             <label htmlFor="job">Job Role:</label>
-            <select id="job" name="user_job">
+            <select
+              onChange={(e) => onChangeHandler(e)}
+              id="job"
+              name="user_job"
+            >
               <optgroup label="Web">
                 <option value="frontend_developer">Front-End Developer</option>
                 <option value="php_developer">PHP Developer</option>
@@ -96,16 +112,18 @@ function NewForm() {
             </select>
             <Label>Interests:</Label>
             <input
+              onChange={(e) => onChangeHandler(e)}
               type="checkbox"
               id="development"
               value="interest_development"
-              name="user_interest"
+              name="userInterest"
             />
             <label className="light" htmlFor="development">
               Development
             </label>
             <br />
             <input
+              onChange={(e) => onChangeHandler(e)}
               type="checkbox"
               id="design"
               value="interest_design"
@@ -116,6 +134,7 @@ function NewForm() {
             <label>
               <br />
               <input
+                onChange={(e) => onChangeHandler(e)}
                 type="checkbox"
                 id="business"
                 value="interest_business"
