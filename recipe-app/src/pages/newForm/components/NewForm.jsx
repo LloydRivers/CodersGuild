@@ -24,7 +24,7 @@ function NewForm() {
   return (
     <div className="row">
       <div className="col-md-12">
-        <Form onSubmit={handleSubmit}>
+        <Form method="POST" action="/submit-form" onSubmit={handleSubmit}>
           <h1> Sign Up </h1>
 
           <fieldset>
@@ -140,7 +140,9 @@ function NewForm() {
             </label>
           </fieldset>
 
-          <button type="submit">Sign Up</button>
+          <button className="button" type="submit">
+            Sign Up
+          </button>
         </Form>
       </div>
     </div>

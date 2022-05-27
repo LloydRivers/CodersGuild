@@ -20,6 +20,7 @@ import Work from "./pages/Work";
 import SimpleCounter from "./pages/SimpleCounter";
 import LoadingPractice from "./LoadingPractice";
 import NewForm from "./pages/newForm/components/NewForm";
+import { Counter } from "./pages/redux/features/counter/Counter";
 
 function App() {
   const [saved, setSaved] = useState([]);
@@ -30,6 +31,7 @@ function App() {
         <MyNav />
         <Routes>
           <Route path="/" element={<Pexels />} />
+          <Route path="/redux" element={<Counter />} />
           <Route
             path="/unsplash"
             element={<Gallery saved={saved} setSaved={setSaved} />}
