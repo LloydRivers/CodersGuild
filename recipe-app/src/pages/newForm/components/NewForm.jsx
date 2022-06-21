@@ -28,6 +28,7 @@ function NewForm() {
           <h1> Sign Up </h1>
 
           <fieldset>
+            <input type="text" name="" id="" />
             <legend>
               <span className="number">1</span> Your Basic Info:
             </legend>

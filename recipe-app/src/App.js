@@ -21,6 +21,8 @@ import SimpleCounter from "./pages/SimpleCounter";
 import LoadingPractice from "./LoadingPractice";
 import NewForm from "./pages/newForm/components/NewForm";
 import { Counter } from "./pages/redux/features/counter/Counter";
+import Logged from "./logged/Logged";
+import Options from "./pages/Options";
 
 function App() {
   const [saved, setSaved] = useState([]);
@@ -30,6 +32,7 @@ function App() {
       <Router>
         <MyNav />
         <Routes>
+          <Route path="/logged" element={<Logged />} />
           <Route path="/" element={<Pexels />} />
           <Route path="/redux" element={<Counter />} />
           <Route
@@ -37,6 +40,7 @@ function App() {
             element={<Gallery saved={saved} setSaved={setSaved} />}
           />
           <Route path="/newform" element={<NewForm />} />
+          <Route path="/options" element={<Options />} />
           <Route path="/opensea" element={<OpenSea />} />
           <Route path="/loading" element={<LoadingPractice />} />
           {login && <Route path="/recipes" element={<Recipes />} />}

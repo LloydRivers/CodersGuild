@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Data from "../jason_test/data.json";
 import axios from "axios";
 import GalleryCard from "../GalleryCard";
 import { useEffect, useState } from "react";
@@ -21,6 +22,7 @@ function Gallery({ setSaved }) {
   };
 
   useEffect(() => {
+    console.log(Data);
     axios.get(url).then((response) => {
       setImages(response.data.results);
     });
